@@ -29,16 +29,19 @@ class Boy:
 
 class Ball:
     def __init__(self):
-            self.x, self.y = random.randint(50, 750), 90
-            self.frame = random.randint(0, 3)
-            self.image = load_image('ball21x21.png')
+            self.x, self.y = random.randint(0, 800), 90
+            self.frame = random.randint(0, 7)
+            self.image = load_image('ball41x41.png')
     
     def update(self):
-            self.frame = (self.frame ) % random.randint(1, 8)
-            self.y += random.randint(1, 10)
+            self.frame = (self.frame +1) % random.randint(1, 10)
+            self.y += random.randint(1, 30)
     
     def draw(self):
-            self.image.clip_draw(self.frame, 0, 100, 100, self.x, self.y)
+            self.image.clip_draw(self.frame, 0, 41, 41, self.x, self.y)
+
+
+        
 
 
 def handle_events():
