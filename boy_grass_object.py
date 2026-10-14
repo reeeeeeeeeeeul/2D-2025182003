@@ -26,22 +26,6 @@ class Boy:
     def draw(self):
         self.image.clip_draw(self.frame*100, 0, 100, 100, self.x, self.y)
 
-class Zombie:
-    def __init__(self):
-        self.x, self.y = 100, 170
-        self.frame = 0
-        self.image = load_image('zombie_run_animation.png')
-
-    def update(self):
-        self.frame = (self.frame +1) % 10
-        self.x += 5
-
-    def draw(self):
-        frame_width = self.image.w // 10
-        frame_height = self.image.h
-        self.image.clip_draw(self.frame *frame_width, 0, frame_width, frame_height, self.x, self.y, frame_width // 2, frame_height // 2)
-
-
 
 def handle_events():
     global running
@@ -66,9 +50,6 @@ def reset_world():
 
     team = [Boy() for i in range(11)]
     world += team
-
-    zombie = Zombie()
-    world.append(zombie)
 
 
 def upadte_world():
