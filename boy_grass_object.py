@@ -29,16 +29,16 @@ class Boy:
 
 class Ball:
     def __init__(self):
-            self.x, self.y = random.randint(100, 700), 30
-            self.frame = random.randint(0, 7)
-            self.image = load_image('run_animation.png')
+            self.x, self.y = random.randint(50, 750), 90
+            self.frame = random.randint(0, 3)
+            self.image = load_image('ball21x21.png')
     
     def update(self):
-            self.frame = (self.frame ) % 8
-            self.y += 1
+            self.frame = (self.frame ) % random.randint(1, 8)
+            self.y += random.randint(1, 10)
     
     def draw(self):
-            self.image.clip_draw(self.frame*100, 0, 100, 100, self.x, self.y)
+            self.image.clip_draw(self.frame, 0, 100, 100, self.x, self.y)
 
 
 def handle_events():
@@ -65,6 +65,8 @@ def reset_world():
     team = [Boy() for i in range(11)]
     world += team
 
+    balls = [Ball() for i in range(20)]
+    world += balls
 
 def upadte_world():
     for o in world:
